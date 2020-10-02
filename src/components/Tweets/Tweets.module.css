@@ -1,0 +1,29 @@
+.container {
+  width: 600px;
+  height: 600px;
+  /* border: 1px solid black; */
+  border-bottom: 10px solid black;
+  border-top: 10px solid black;
+  overflow: scroll;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 10%;
+  transition: 1s;
+}
+
+.tweets {
+  width: 599px;
+  /* right: 10%; */
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 180px;
+  left: 0;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
