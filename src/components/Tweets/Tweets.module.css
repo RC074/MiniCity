@@ -11,7 +11,18 @@
   bottom: 0;
   left: 0;
   right: 10%;
-  transition: 1s;
+  transition: 1s height;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    right: 0;
+    max-width: 400px;
+  }
+
+  .tweets {
+    max-width: 399px;
+  }
 }
 
 .tweets {

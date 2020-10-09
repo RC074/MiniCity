@@ -1,0 +1,70 @@
+.info {
+  border-top: 5px tomato solid;
+  width: 300px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: tomato;
+}
+
+.time {
+  text-align: center;
+  position: relative;
+  bottom: 30px;
+}
+
+.temp {
+  color: white;
+  font-size: 70px;
+  text-align: center;
+  padding-bottom: 5px;
+  left: 15px;
+  position: relative;
+}
+
+.description {
+  text-align: center;
+  color: tomato;
+  font-size: 40px;
+  width: 300px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.card {
+  width: 400px;
+  height: 500px;
+  background: black;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.5s;
+  will-change: transform;
+}
+
+.card:hover {
+  box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
+}
+
+.container {
+  font-family: open sans, lato, helvetica, sans-serif;
+  max-width: 400px;
+  max-height: 600px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 10%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    right: 0;
+  }
+}

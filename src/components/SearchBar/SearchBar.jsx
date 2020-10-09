@@ -1,21 +1,41 @@
 import React, { useState, useEffect } from "react";
 
-import PlacesAutocomplete from "react-places-autocomplete";
+import Geocode from "react-geocode";
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete";
 
 import styles from "./SearchBar.module.css";
 
 const SearchBar = (props) => {
   const [address, setAddress] = useState("");
   const [hashloc, setHashloc] = useState(window.location.hash);
-
-  const handleSelect = (value, id, obj) => {
+  
+  const handleSelect = async (value, id, obj) => {
     setAddress(value);
-    if(obj) {
+    console.log(obj);
+    const results = await geocodeByAddress(value);
+    const {lat, lng} = await getLatLng(results[0]);
+    if(obj !== null) {
+      Geocode.setApiKey("AIzaSyC9lbeOtWeYfIXDmkRxeSG6GyWv9GkTyhc");
+      let province = await Geocode.fromLatLng(lat, lng)
       props.getData({
         city: obj.terms[0].value,
-        country: obj.terms[obj.terms.length - 1].value
-      });
+        country: obj.terms[obj.terms.length - 1].value,
+        province: province.results[province.results.length - 2].address_components[0].long_name,
+        lat: lat,
+        lng: lng
+      })
     }
+  };
+
+  const handlePlacesError = (error) => {
+    console.log(error);
+  }
+
+  const handleDelete = () => {
+    setAddress("");
   };
 
   useEffect(() => {
@@ -35,6 +55,7 @@ const SearchBar = (props) => {
       <PlacesAutocomplete
         value={address}
         onChange={setAddress}
+        onError={(error) => handlePlacesError(error)}
         onSelect={handleSelect}
         searchOptions={{ types: ["(cities)"] }}
       >
@@ -42,7 +63,10 @@ const SearchBar = (props) => {
           <div>
             <div className={styles.container}>
               <input {...getInputProps({ placeholder: "Anywhere..." })} />
-              <div className={styles.search}></div>
+              <div
+                className={styles.search}
+                onClick={() => handleDelete()}
+              ></div>
             </div>
 
             <div className={styles.dropdownMenu}>

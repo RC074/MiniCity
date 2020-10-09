@@ -7,9 +7,8 @@ export const fetchData = async (toPost) => {
       method: "POST",
       body: JSON.stringify(toPost),
     });
-    // console.log(response.json())
     return response.json();
   } catch (error) {
-    // console.log(error);
+    console.log(error);
   }
 };

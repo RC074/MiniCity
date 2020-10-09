@@ -1,4 +1,5 @@
 {
+  "homepage": "https://rc074.github.io/react-summative-app",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -7,13 +8,20 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "gh-pages": "^3.1.0",
+    "install": "^0.13.0",
+    "npm": "^6.14.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-geocode": "^0.2.2",
     "react-places-autocomplete": "^7.3.0",
     "react-scripts": "3.4.3",
+    "react-spring": "^8.0.27",
     "react-tweet-embed": "^1.2.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
