@@ -26,7 +26,6 @@ class App extends React.Component {
 
   // Distributing data fetched from the api call
   handleData = async (data) => {
-    console.log(data);
     await this.setState({ tweets: [], weather: [], corona: [] });
     this.setState({ initial: false });
     this.setState({

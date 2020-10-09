@@ -11,28 +11,29 @@ import styles from "./SearchBar.module.css";
 const SearchBar = (props) => {
   const [address, setAddress] = useState("");
   const [hashloc, setHashloc] = useState(window.location.hash);
-  
+
   const handleSelect = async (value, id, obj) => {
     setAddress(value);
-    console.log(obj);
     const results = await geocodeByAddress(value);
-    const {lat, lng} = await getLatLng(results[0]);
-    if(obj !== null) {
+    const { lat, lng } = await getLatLng(results[0]);
+    if (obj !== null) {
       Geocode.setApiKey("AIzaSyC9lbeOtWeYfIXDmkRxeSG6GyWv9GkTyhc");
-      let province = await Geocode.fromLatLng(lat, lng)
+      let province = await Geocode.fromLatLng(lat, lng);
       props.getData({
         city: obj.terms[0].value,
         country: obj.terms[obj.terms.length - 1].value,
-        province: province.results[province.results.length - 2].address_components[0].long_name,
+        province:
+          province.results[province.results.length - 2].address_components[0]
+            .long_name,
         lat: lat,
-        lng: lng
-      })
+        lng: lng,
+      });
     }
   };
 
   const handlePlacesError = (error) => {
     console.log(error);
-  }
+  };
 
   const handleDelete = () => {
     setAddress("");
