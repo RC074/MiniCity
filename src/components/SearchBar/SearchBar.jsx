@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import Script from "react-load-script";
 import Geocode from "react-geocode";
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -11,6 +12,7 @@ import styles from "./SearchBar.module.css";
 const SearchBar = (props) => {
   const [address, setAddress] = useState("");
   const [hashloc, setHashloc] = useState(window.location.hash);
+  const [scriptLoad, setScriptLoad] = useState(false);
 
   const handleSelect = async (value, id, obj) => {
     setAddress(value);
@@ -39,6 +41,10 @@ const SearchBar = (props) => {
     setAddress("");
   };
 
+  const handleScriptLoad = () => {
+    setScriptLoad(true);
+  };
+
   useEffect(() => {
     window.addEventListener("hashchange", () => {
       setHashloc(window.location.hash);
@@ -53,59 +59,70 @@ const SearchBar = (props) => {
         transition: "visibility 0s, opacity 1s linear",
       }}
     >
-      <PlacesAutocomplete
-        value={address}
-        onChange={setAddress}
-        onError={(error) => handlePlacesError(error)}
-        onSelect={handleSelect}
-        searchOptions={{ types: ["(cities)"] }}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <div className={styles.container}>
-              <input {...getInputProps({ placeholder: "Anywhere..." })} />
-              <div
-                className={styles.search}
-                onClick={() => handleDelete()}
-              ></div>
-            </div>
+      <Script
+        url={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_G_API}&libraries=places`}
+        onLoad={handleScriptLoad}
+      />
+      {scriptLoad ? (
+        <PlacesAutocomplete
+          value={address}
+          onChange={setAddress}
+          onError={(error) => handlePlacesError(error)}
+          onSelect={handleSelect}
+          searchOptions={{ types: ["(cities)"] }}
+        >
+          {({
+            getInputProps,
+            suggestions,
+            getSuggestionItemProps,
+            loading,
+          }) => (
+            <div>
+              <div className={styles.container}>
+                <input {...getInputProps({ placeholder: "Anywhere..." })} />
+                <div
+                  className={styles.search}
+                  onClick={() => handleDelete()}
+                ></div>
+              </div>
 
-            <div className={styles.dropdownMenu}>
-              {loading ? (
-                <div className={styles.loading}>...loading</div>
-              ) : null}
+              <div className={styles.dropdownMenu}>
+                {loading ? (
+                  <div className={styles.loading}>...loading</div>
+                ) : null}
 
-              {suggestions.map((suggestion, i) => {
-                const className = suggestion.active
-                  ? "suggestionitemActive"
-                  : "suggestionItem";
-                let style = {
-                  padding: "15px",
-                  backgroundColor: "transparent",
-                  transition: "0.2s",
-                  fontFamily: '"Inconsolata", monospace',
-                };
-                if (className === "suggestionitemActive") {
-                  style["borderLeft"] = "10px solid rebeccapurple";
-                }
-                if (i === 0) {
-                  style["paddingTop"] = "40px";
-                }
-                return (
-                  <div
-                    {...getSuggestionItemProps(suggestion, { style })}
-                    key={i}
-                  >
-                    {suggestion.formattedSuggestion.mainText +
-                      " " +
-                      suggestion.formattedSuggestion.secondaryText}
-                  </div>
-                );
-              })}
+                {suggestions.map((suggestion, i) => {
+                  const className = suggestion.active
+                    ? "suggestionitemActive"
+                    : "suggestionItem";
+                  let style = {
+                    padding: "15px",
+                    backgroundColor: "transparent",
+                    transition: "0.2s",
+                    fontFamily: '"Inconsolata", monospace',
+                  };
+                  if (className === "suggestionitemActive") {
+                    style["borderLeft"] = "10px solid rebeccapurple";
+                  }
+                  if (i === 0) {
+                    style["paddingTop"] = "40px";
+                  }
+                  return (
+                    <div
+                      {...getSuggestionItemProps(suggestion, { style })}
+                      key={i}
+                    >
+                      {suggestion.formattedSuggestion.mainText +
+                        " " +
+                        suggestion.formattedSuggestion.secondaryText}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
+          )}
+        </PlacesAutocomplete>
+      ) : null}
     </div>
   );
 };

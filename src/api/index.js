@@ -1,6 +1,5 @@
-const url = "https://flask-app-u63drvxcia-uc.a.run.app/";
+const url = process.env.REACT_APP_SERVER;
 // const url = "http://127.0.0.1:8080/";
-
 export const fetchData = async (toPost) => {
   try {
     const response = await fetch(url, {
