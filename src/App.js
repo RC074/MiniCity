@@ -174,7 +174,7 @@ class App extends React.Component {
 
   render() {
     return (
-      // <div id="wrapper">
+      // theme credits to Alberto Hartzet www.albertohartzet.com
       <div className="ct" id="t1">
         <div className="ct" id="t2">
           <div className="ct" id="t3">

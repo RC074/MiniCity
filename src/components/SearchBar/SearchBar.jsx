@@ -103,6 +103,7 @@ const SearchBar = (props) => {
                   };
                   if (className === "suggestionitemActive") {
                     style["borderLeft"] = "10px solid rebeccapurple";
+                    style["cursor"] = 'pointer';
                   }
                   if (i === 0) {
                     style["paddingTop"] = "40px";
