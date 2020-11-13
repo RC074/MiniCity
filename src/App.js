@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import Tweets from "./components/Tweets/Tweets";
 import Weather from "./components/Weather/Weather";
 import Corona from "./components/Corona/Corona";
+import Popup from "./components/Popup/Popup";
 import "./App.css";
 
 class App extends React.Component {
@@ -196,6 +197,7 @@ class App extends React.Component {
                 </ul>
                 <div className="page" id="p1">
                   <section>
+                    <Popup />
                     <SearchBar
                       className="searchBar"
                       getData={(data) => this.handleData(data)}

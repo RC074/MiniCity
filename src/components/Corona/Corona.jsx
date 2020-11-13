@@ -1,29 +1,36 @@
-import React from "react";
-import { useSpring, animated } from "react-spring";
+import React from "react"; // import react
+import { useSpring, animated } from "react-spring"; // for card animation
 
-import styles from "./Corona.module.css";
+import styles from "./Corona.module.css"; // import the styles as styles
 
+// some math logic for the card animation
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 60,
   (x - window.innerWidth / 2) / 60,
   1.08,
 ];
+
+// for animation
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
+// timeout function
+function timeout(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// uses react.memo to remember the prevProps so this component will keep on refreshing itself
 const Corona = React.memo(
   (props) => {
-    const data = props.data;
+    const data = props.data; 
 
     const [p, set] = useSpring(() => ({
       xys: [0, 0, 1],
       config: { mass: 5, tension: 300, friction: 40 },
     }));
 
-    function timeout(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-
+    
+    // sleep function, timeout 4000 is not necessary, it's just for the loading animation
     async function sleep() {
       await timeout(4000);
       props.loading(false);
@@ -33,6 +40,7 @@ const Corona = React.memo(
       sleep();
     }
 
+    // some css variants
     const virus = {
       position: "relative",
       top: 100,
