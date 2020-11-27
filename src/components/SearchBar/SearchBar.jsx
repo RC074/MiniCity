@@ -25,7 +25,7 @@ const SearchBar = (props) => {
         city: obj.terms[0].value,
         country: obj.terms[obj.terms.length - 1].value,
         province:
-          province.results[province.results.length - 2].address_components[0]
+          province.results[province.results.length - 3].address_components[0]
             .long_name,
         lat: lat,
         lng: lng,
@@ -103,7 +103,7 @@ const SearchBar = (props) => {
                   };
                   if (className === "suggestionitemActive") {
                     style["borderLeft"] = "10px solid rebeccapurple";
-                    style["cursor"] = 'pointer';
+                    style["cursor"] = "pointer";
                   }
                   if (i === 0) {
                     style["paddingTop"] = "40px";
