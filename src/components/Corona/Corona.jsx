@@ -14,25 +14,18 @@ const calc = (x, y) => [
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
-// timeout function
-function timeout(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 // uses react.memo to remember the prevProps so this component will keep on refreshing itself
 const Corona = React.memo(
   (props) => {
-    const data = props.data; 
+    const data = props.data;
 
     const [p, set] = useSpring(() => ({
       xys: [0, 0, 1],
       config: { mass: 5, tension: 300, friction: 40 },
     }));
 
-    
     // sleep function, timeout 4000 is not necessary, it's just for the loading animation
     async function sleep() {
-      await timeout(4000);
       props.loading(false);
     }
 

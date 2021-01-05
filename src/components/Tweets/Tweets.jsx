@@ -13,18 +13,13 @@ const Tweets = React.memo((props) => {
         className={styles.container}
         style={{
           height: props.show ? "600px" : "0px",
-          borderWidth: props.show ? "10px" : "0px", 
+          borderWidth: props.show ? "10px" : "0px",
         }}
       ></div>
     );
   }
 
-  function timeout(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
   async function sleep() {
-    await timeout(3000);
     props.loading(false);
   }
 

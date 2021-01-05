@@ -43,12 +43,7 @@ const Weather = React.memo(
       return time;
     };
 
-    function timeout(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-
     async function sleep() {
-      await timeout(4000);
       props.loading(false);
     }
 
@@ -56,7 +51,7 @@ const Weather = React.memo(
     if (data.length !== 0) {
       sleep();
     }
-    
+
     const [p, set] = useSpring(() => ({
       xys: [0, 0, 1],
       config: { mass: 5, tension: 300, friction: 40 },
