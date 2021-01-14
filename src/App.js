@@ -8,7 +8,9 @@ import Popup from "./components/Popup/Popup";
 import "./App.css";
 
 class App extends React.Component {
+  // The App's state/variables
   state = {
+    // the current location that the user selected, in dictionary format
     location: {
       city: null,
       country: null,
@@ -16,12 +18,26 @@ class App extends React.Component {
       lat: null,
       lng: null,
     },
+
+    // list of tweets id, initialized to be empty
     tweets: [],
+
+    // list of weather data, initialized to be empty
     weather: [],
+
+    // list of corona data, initialized to be empty
     corona: [],
+
+    // boolean: app's initial state, after user select a city this will be forever false until the page reloads
     initial: true,
+
+    // is the tweets page loading?
     tweetLoading: false,
+
+    // is the weather page loading?
     weatherLoading: false,
+
+    // is the covid-19 page loading?
     coronaLoading: false,
   };
 
@@ -52,6 +68,7 @@ class App extends React.Component {
     this.setState({ coronaLoading: bool });
   };
 
+  // this function checks whether the data about the tweets are received, then it will determine whether to show the loading page or the tweets
   TweetConditionalRender = () => {
     return (
       <div>
@@ -93,6 +110,7 @@ class App extends React.Component {
     );
   };
 
+  // this function checks whether the data about the weather is received, then it will determine whether to show the loading page or the weather card
   WeatherConditionalRender = () => {
     return (
       <div>
@@ -133,6 +151,7 @@ class App extends React.Component {
     );
   };
 
+  // this function checks whether the data about covid is received, then it will determine whether to show the loading page or the covid card
   CoronaConditionalRender = () => {
     return (
       <div>
@@ -218,7 +237,6 @@ class App extends React.Component {
           </div>
         </div>
       </div>
-      // </div>
     );
   }
 }

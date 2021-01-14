@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Script from "react-load-script";
+// used for
 import Geocode from "react-geocode";
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -10,17 +11,28 @@ import PlacesAutocomplete, {
 import styles from "./SearchBar.module.css";
 
 const SearchBar = (props) => {
+  // address is the place holder for the current address user selected
+  // hashloc is the hash url
   const [address, setAddress] = useState("");
   const [hashloc, setHashloc] = useState(window.location.hash);
   const [scriptLoad, setScriptLoad] = useState(false);
 
+  // this function will be called when user select a location
   const handleSelect = async (value, id, obj) => {
+    // change the current address value
     setAddress(value);
+
+    // get the geocode from the current location
     const results = await geocodeByAddress(value);
     const { lat, lng } = await getLatLng(results[0]);
+
     if (obj !== null) {
       Geocode.setApiKey("AIzaSyC9lbeOtWeYfIXDmkRxeSG6GyWv9GkTyhc");
+
+      // get the province from lat lng
       let province = await Geocode.fromLatLng(lat, lng);
+
+      // organize and export the data to parent component
       props.getData({
         city: obj.terms[0].value,
         country: obj.terms[obj.terms.length - 1].value,
@@ -33,10 +45,12 @@ const SearchBar = (props) => {
     }
   };
 
+  // error catch
   const handlePlacesError = (error) => {
     console.log(error);
   };
 
+  // delete the current location once clicked on the x mark
   const handleDelete = () => {
     setAddress("");
   };
@@ -45,12 +59,14 @@ const SearchBar = (props) => {
     setScriptLoad(true);
   };
 
+  // always update the hash location
   useEffect(() => {
     window.addEventListener("hashchange", () => {
       setHashloc(window.location.hash);
     });
   });
 
+  // component's html with some js
   return (
     <div
       style={{

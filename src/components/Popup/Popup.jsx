@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-import styled from "./Popup.module.css";
+import styled from "./Popup.module.css"; // css file
 
 const Popup = () => {
+  // the variables that controls the visibility of the instructions
   const [show, setShow] = useState(false);
   const [hashloc, setHashloc] = useState("");
 
+  // this function will be called when user click to show the instruction
   const handleClick = () => {
     console.log(show);
     setShow(!show);
@@ -17,6 +19,7 @@ const Popup = () => {
     });
   }, []);
 
+  // component's html
   return (
     <div
       className={styled.container}

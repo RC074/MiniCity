@@ -38,6 +38,8 @@ const Corona = React.memo(
       position: "relative",
       top: 100,
     };
+
+    // component's html
     return (
       <div className={styles.container}>
         <animated.div

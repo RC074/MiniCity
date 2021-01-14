@@ -1,12 +1,12 @@
 import React from "react";
-
 import styles from "./Tweets.module.css";
-
-import TweetEmbed from "react-tweet-embed";
+import TweetEmbed from "react-tweet-embed"; // used to generate Tweets
 
 const Tweets = React.memo((props) => {
-  let count = 0;
+  let count = 0; // keep track how many tweets are loaded
   const ids = props.data;
+
+  // if there is no tweets then return the html below
   if (ids.length === 0) {
     return (
       <div
@@ -18,18 +18,18 @@ const Tweets = React.memo((props) => {
       ></div>
     );
   }
-
   async function sleep() {
     props.loading(false);
   }
-
   const handleLoad = () => {
     count++;
     if (count === ids.length) {
+      // if all the tweets are loaded, change the loading to be false
       sleep();
     }
   };
 
+  // component's html
   return (
     <div
       className={styles.container}
@@ -56,5 +56,4 @@ const Tweets = React.memo((props) => {
     </div>
   );
 });
-
 export default Tweets;

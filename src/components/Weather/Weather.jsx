@@ -3,16 +3,21 @@ import { useSpring, animated } from "react-spring";
 
 import styles from "./Weather.module.css";
 
+// some math logic for the card animation
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 60,
   (x - window.innerWidth / 2) / 60,
   1.08,
 ];
+
+// for animation
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
+// uses react.memo to remember the prevProps so this component will keep on refreshing itself
 const Weather = React.memo(
   (props) => {
+    // this function will return the given unix time in date format
     const unixToDate = (tz) => {
       var d = new Date();
       var localTime = d.getTime();
@@ -57,6 +62,7 @@ const Weather = React.memo(
       config: { mass: 5, tension: 300, friction: 40 },
     }));
 
+    // all the possible weather icons for the corresponding weather
     const weatherIcons = [
       "fas fa-sun",
       "fas fa-cloud",
@@ -67,6 +73,7 @@ const Weather = React.memo(
       "fas fa-smog",
     ];
 
+    // css variants
     const weatherBox = {
       height: "300px",
       width: "400px",
@@ -74,11 +81,13 @@ const Weather = React.memo(
       textAlign: "center",
     };
 
+    // css variants
     const weather = {
       position: "relative",
       top: 100,
     };
 
+    // component's html
     return (
       <div className={styles.container}>
         <animated.div
