@@ -27,7 +27,8 @@ const SearchBar = (props) => {
     const { lat, lng } = await getLatLng(results[0]);
 
     if (obj !== null) {
-      Geocode.setApiKey("AIzaSyC9lbeOtWeYfIXDmkRxeSG6GyWv9GkTyhc");
+      // Geocode.setApiKey("AIzaSyC9lbeOtWeYfIXDmkRxeSG6GyWv9GkTyhc");
+      Geocode.setApiKey(process.env.REACT_APP_G_API);
 
       // get the province from lat lng
       let province = await Geocode.fromLatLng(lat, lng);
@@ -76,7 +77,7 @@ const SearchBar = (props) => {
       }}
     >
       <Script
-        url={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_G_API}&libraries=places`}
+        url={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCXeTETZAgrj3LXbFqo7atOq4a5N-r9L0Q&libraries=places`}
         onLoad={handleScriptLoad}
       />
       {scriptLoad ? (

@@ -43,16 +43,16 @@ class App extends React.Component {
 
   // Distributing data fetched from the api call
   handleData = async (data) => {
-    await this.setState({ tweets: [], weather: [], corona: [] });
+    await this.setState({ tweets: [], weather: [] });
     this.setState({ initial: false });
     this.setState({
       tweetLoading: true,
       weatherLoading: true,
-      coronaLoading: true,
+      // coronaLoading: true,
     });
     this.setState({ location: data });
-    const { tweets, weather, corona } = await fetchData(data);
-    this.setState({ tweets: tweets, weather: weather, corona: corona });
+    const { tweets, weather } = await fetchData(data);
+    this.setState({ tweets: tweets, weather: weather });
   };
 
   // handles all the loading states
@@ -165,8 +165,7 @@ class App extends React.Component {
             <span className="title">COVID-19</span>
             <div
               style={{
-                visibility:
-                  this.state.corona.length === 0 ? "hidden" : "visible",
+                visibility: "visible",
               }}
             >
               <span className="loader">
@@ -177,16 +176,10 @@ class App extends React.Component {
         </div>
         <div
           style={{
-            visibility:
-              this.state.coronaLoading || this.state.initial
-                ? "hidden"
-                : "visible",
+            visibility: "visible",
           }}
         >
-          <Corona
-            loading={(bool) => this.handleCoronaLoading(bool)}
-            data={this.state.corona}
-          />
+          <Corona loading={false} data={this.state.corona} />
         </div>
       </div>
     );

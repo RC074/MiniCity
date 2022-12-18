@@ -29,9 +29,9 @@ const Corona = React.memo(
       props.loading(false);
     }
 
-    if (data.length !== 0) {
-      sleep();
-    }
+    // if (data.length !== 0) {
+    //   sleep();
+    // }
 
     // some css variants
     const virus = {
@@ -52,28 +52,27 @@ const Corona = React.memo(
             <div className="fas fa-virus" style={virus}></div>
           </div>
           <div className={styles.info}>
-            <div className={styles.time}>
-              <time>{data[4]}</time>
-            </div>
-            <div className={styles.province}>
-              <div>{data[0]}</div>
-            </div>
+            <div className={styles.time}>{/* <time>{data[4]}</time> */}</div>
+            <div className={styles.province}>{/* <div>{data[0]}</div> */}</div>
             <div className={styles.confirmed}>
-              <div className={styles.category}>
-                Confirmed:<span id={styles.confirmed}>{data[1]}</span>
+              <div className={styles.category} style={{ fontSize: "20px" }}>
+                {/* Confirmed:<span id={styles.confirmed}>{data[1]}</span> */}
+                Due to the covid tracker used by this app is no longer
+                maintained and the covid situation is slowly getting better,
+                this page will not be available at the moment
               </div>
             </div>
             <div className={styles.dead}>
               <div className={styles.category}>
-                Dead:<span id={styles.dead}>{data[2]}</span>
+                {/* Dead:<span id={styles.dead}>{data[2]}</span> */}
               </div>
             </div>
             <div className={styles.recovered}>
               <div className={styles.category}>
-                Recovered:
+                {/* Recovered:
                 <span id={styles.recovered}>
                   {data[3] === null ? "Unknown" : data[3]}
-                </span>
+                </span> */}
               </div>
             </div>
           </div>

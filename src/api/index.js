@@ -1,4 +1,4 @@
-const url = process.env.REACT_APP_SERVER; // url of the server
+const url = "https://flask-app-summative-backend.herokuapp.com/"; // url of the server
 
 // const url = "http://127.0.0.1:8080/";
 
