@@ -1,4 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is only the repo for the frontend of this app, see the backend here
+https://github.com/RC074/react-summative-app-backend
 
 ### Published at:
 [https://rc074.github.io/react-summative-app/](https://rc074.github.io/react-summative-app/)
