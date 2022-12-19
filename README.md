@@ -3,19 +3,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Published at:
 [https://rc074.github.io/react-summative-app/](https://rc074.github.io/react-summative-app/)
 
-### How to use
+## How to use
 
 In the home page, simply type a city that you want to know more about. Then navigate to other pages to find out!
 
-## weather page [working] - pullled from openweathermap.org
+### weather page [working] - pullled from openweathermap.org
 
-## trend page [working] - pulled using twitter's developer API
+### trend page [working] - pulled using twitter's developer API
 
-## covid page [not available atm]
+### covid page [not available atm]
 
 more pages coming!!
 
-### concept board
+## concept board
 ![image](https://user-images.githubusercontent.com/63427503/208340052-c7e0bc5f-6b6d-4287-bfa4-921efe9b39b0.png)
 
 ## Available Scripts
