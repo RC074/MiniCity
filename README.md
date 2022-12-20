@@ -3,7 +3,7 @@ This is only the repo for the frontend of this app, see the backend here
 https://github.com/RC074/react-summative-app-backend
 
 ### Published at:
-[https://rc074.github.io/react-summative-app/](https://rc074.github.io/react-summative-app/)
+https://rc074.github.io/MiniCity/
 
 ## How to use
 
