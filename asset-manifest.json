@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-summative-app/static/css/main.f4481552.chunk.css",
-    "main.js": "/react-summative-app/static/js/main.4917fe31.chunk.js",
-    "main.js.map": "/react-summative-app/static/js/main.4917fe31.chunk.js.map",
-    "runtime-main.js": "/react-summative-app/static/js/runtime-main.791149d7.js",
-    "runtime-main.js.map": "/react-summative-app/static/js/runtime-main.791149d7.js.map",
-    "static/js/2.e7b453ff.chunk.js": "/react-summative-app/static/js/2.e7b453ff.chunk.js",
-    "static/js/2.e7b453ff.chunk.js.map": "/react-summative-app/static/js/2.e7b453ff.chunk.js.map",
-    "index.html": "/react-summative-app/index.html",
-    "precache-manifest.eb78a6e738707e29b95eb5291c27a62a.js": "/react-summative-app/precache-manifest.eb78a6e738707e29b95eb5291c27a62a.js",
-    "service-worker.js": "/react-summative-app/service-worker.js",
-    "static/css/main.f4481552.chunk.css.map": "/react-summative-app/static/css/main.f4481552.chunk.css.map",
-    "static/js/2.e7b453ff.chunk.js.LICENSE.txt": "/react-summative-app/static/js/2.e7b453ff.chunk.js.LICENSE.txt"
+    "main.css": "/MiniCity/static/css/main.f4481552.chunk.css",
+    "main.js": "/MiniCity/static/js/main.4917fe31.chunk.js",
+    "main.js.map": "/MiniCity/static/js/main.4917fe31.chunk.js.map",
+    "runtime-main.js": "/MiniCity/static/js/runtime-main.f06f08da.js",
+    "runtime-main.js.map": "/MiniCity/static/js/runtime-main.f06f08da.js.map",
+    "static/js/2.e7b453ff.chunk.js": "/MiniCity/static/js/2.e7b453ff.chunk.js",
+    "static/js/2.e7b453ff.chunk.js.map": "/MiniCity/static/js/2.e7b453ff.chunk.js.map",
+    "index.html": "/MiniCity/index.html",
+    "precache-manifest.6eb42128a1c7d06089f762176261996e.js": "/MiniCity/precache-manifest.6eb42128a1c7d06089f762176261996e.js",
+    "service-worker.js": "/MiniCity/service-worker.js",
+    "static/css/main.f4481552.chunk.css.map": "/MiniCity/static/css/main.f4481552.chunk.css.map",
+    "static/js/2.e7b453ff.chunk.js.LICENSE.txt": "/MiniCity/static/js/2.e7b453ff.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.791149d7.js",
+    "static/js/runtime-main.f06f08da.js",
     "static/js/2.e7b453ff.chunk.js",
     "static/css/main.f4481552.chunk.css",
     "static/js/main.4917fe31.chunk.js"
