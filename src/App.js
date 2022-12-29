@@ -124,8 +124,7 @@ class App extends React.Component {
             <span className="title">WEATHER</span>
             <div
               style={{
-                visibility:
-                  this.state.weather.length === 0 ? "hidden" : "visible",
+                visibility: !this.state.weatherLoading ? "hidden" : "visible",
               }}
             >
               <span className="loader">
@@ -187,7 +186,6 @@ class App extends React.Component {
 
   render() {
     return (
-      // theme credits to Alberto Hartzet www.albertohartzet.com
       <div className="ct" id="t1">
         <div className="ct" id="t2">
           <div className="ct" id="t3">
