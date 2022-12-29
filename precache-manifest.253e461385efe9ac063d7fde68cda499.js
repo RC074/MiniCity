@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7d670a330581f1802a7c2f9bdd7deae2",
+    "revision": "444bcb52a02be4bffe695abf274bcef6",
     "url": "/MiniCity/index.html"
   },
   {
-    "revision": "ed522f96398c9d7db128",
-    "url": "/MiniCity/static/css/main.f4481552.chunk.css"
+    "revision": "979fc537783dae5e3c37",
+    "url": "/MiniCity/static/css/main.8cd97365.chunk.css"
   },
   {
     "revision": "793cc16d50c5cead6db2",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/MiniCity/static/js/2.e7b453ff.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ed522f96398c9d7db128",
-    "url": "/MiniCity/static/js/main.4917fe31.chunk.js"
+    "revision": "979fc537783dae5e3c37",
+    "url": "/MiniCity/static/js/main.28b441b8.chunk.js"
   },
   {
     "revision": "9f50ca4d7d8e81621ac5",
