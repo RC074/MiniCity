@@ -27,8 +27,8 @@ const SearchBar = (props) => {
     const { lat, lng } = await getLatLng(results[0]);
 
     if (obj !== null) {
-      // Geocode.setApiKey("AIzaSyC9lbeOtWeYfIXDmkRxeSG6GyWv9GkTyhc");
-      Geocode.setApiKey(process.env.REACT_APP_G_API);
+      // Geocode.setApiKey(process.env.REACT_APP_G_API);
+      Geocode.setApiKey("AIzaSyCXeTETZAgrj3LXbFqo7atOq4a5N-r9L0Q");
 
       // get the province from lat lng
       let province = await Geocode.fromLatLng(lat, lng);
